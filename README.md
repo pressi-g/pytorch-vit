@@ -17,6 +17,10 @@ This repository contains the code implementations of my masters research project
 
 The Vision Transformer (ViT) is a pioneering architecture that adapts the transformer model, originally designed for natural language processing tasks, to image recognition tasks. This repository provides a basic implementation of the ViT model, along with training and evaluation scripts, allowing researchers and developers to experiment with and build upon the architecture.
 
+<div style="display: flex; justify-content: center;">
+  <img src="vit.gif" alt="solution" width="50%">
+</div>
+
 ## Features
 
 - Basic implementation of the Vision Transformer (ViT) model.
