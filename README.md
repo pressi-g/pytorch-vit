@@ -67,26 +67,30 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
 
 ## Usage
 
-1. Prepare your dataset:
-   - Download and preprocess your dataset.
-   - Update the dataset paths and configurations in `config.yaml`.
+Please refer to the notebooks titled `final_vit_<dataset>.ipynb` for the experiments for the dataset in question. 
+These notebooks contain the finalised code to be refactored into scripts to streamline experiments.
+This will happen in the near future. For now you may clone one of these notebooks (if you wish to to run your own experiments) and edit the cell with the config values: 
 
-2. Train the Vision Transformer model:
+## Parameters
 
-   ```bash
-   python train.py --config config.yaml
-   ```
+dataset: `str`
+   - Options: MNIST, CIFAR10, CIFAR100
 
-3. Evaluate the trained model:
-
-   ```bash
-   python evaluate.py --config config.yaml --checkpoint /path/to/checkpoint.pth
-   ```
-
-## Results
-
-TBA
-
+learning_rate = 0.001
+weight_decay = 0.0001
+batch_size = 256
+num_epochs = 50
+self_supervised_epochs = 20
+fine_tune_epochs = 20
+image_size = 28 if dataset == "MNIST" else 32 # upscale CIFAR10 and CIFAR100 images for better performance -> INVESTIGATE
+patch_size = 7 if dataset == "MNIST" else 8 # keep the number of patches the same for all datasets to keep experiments controlled
+projection_dim = 64
+num_heads = 4
+transformer_layers = 8 # depth
+mlp_head_units = [2048, 1024]
+patience_value = 10 if dataset == "MNIST" else 15 # default: 10 if not set
+dropout=0.01 # Adjust as necessary
+ema_decay = 0.996  # Adjust only if necessary
 
 ## Contributing
 
