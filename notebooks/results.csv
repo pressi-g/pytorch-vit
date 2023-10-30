@@ -1,0 +1,10 @@
+Dataset, Model, Accuracy
+MNIST, mnist_basic_vit, 97.71
+MNIST, mnist_dino_vit, 97.51
+MNIST, mnist_cnn, 98.90
+CIFAR-10, cifar10_cnn, 72.96
+CIFAR-10,
+CIFAR-10,
+CIFAR-100, cifar100_cnn, 42.51
+CIFAR-100,
+CIFAR-100,
