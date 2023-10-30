@@ -1,6 +1,7 @@
 # folders
 data/
 trained_models/
+notebooks/plots/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
