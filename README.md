@@ -24,9 +24,9 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
 ## Features
 
 - Basic implementation of the Vision Transformer (ViT) model.
-- Basic implementation of a Convolutional Neural Network (CNN) model - for comparison.
+- Basic implementation of a Convolutional Neural Network (CNN) model.
+- Basic implementation of a Knowledge Distillation with No Labels model (DINO).
 - Training pipeline with support for custom datasets.
-- Evaluation scripts for image classification tasks.
 - Easy-to-use configuration for model hyperparameters.
 
 ## Installation
@@ -34,11 +34,11 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/pressi-g/vision-transformer-pytorch.git
+   git clone https://github.com/pressi-g/pytorch-vit
    ```
 
    ```bash
-   cd vision-transformer-pytorch
+   cd pytorch-vit
    ```
 
 2. Create a virtual environment using conda:
@@ -51,7 +51,7 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
    conda activate pytorch-vit-env
    ```
 
-3. Install PyTorch with M1/M2 support:
+3. **Optional**: Install PyTorch with M1/M2 support:
 
    ```bash
    conda install pytorch torchvision torchaudio -c pytorch-nightly
@@ -67,30 +67,65 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
 
 ## Usage
 
-Please refer to the notebooks titled `final_vit_<dataset>.ipynb` for the experiments for the dataset in question. 
-These notebooks contain the finalised code to be refactored into scripts to streamline experiments.
-This will happen in the near future. For now you may clone one of these notebooks (if you wish to to run your own experiments) and edit the cell with the config values: 
+To run your own experiments please clone the notebook with model you'd like to use. Change the config values in the second cell and run the notebook. Alternatively, you may view the experiments and its logs.
+
+These notebooks contain the finalised code to be refactored into scripts to streamline experiments. All modules are reusable.
+
+Refactoring into scripts will happen in the near future.
 
 ## Parameters
 
+```
 dataset: `str`
    - Options: MNIST, CIFAR10, CIFAR100
+leanring_rate: `float`
+   - Default: 0.002
+weight_decay: `float`
+   - Default: 0.0001
+batch_size: `int`
+   - Default: 256
+num_epochs: `int`
+   - Default: 50
+self_supervised_epochs: `int`
+   - Default: 20
+fine_tune_epochs: `int`
+   - Default: 20
+image_size: `int`
+   - Default: 28 if dataset == "MNIST" else 32
+patch_size: `int`
+   - Default: 7 if dataset == "MNIST" else 8
+projection_dim: `int`
+   - Default: 64
+num_heads: `int`
+   - Default: 4
+transformer_layers: `int`
+   - Default: 8
+mlp_head_units: `list`
+   - Default: [2048, 1024]
+patience_value: `int`
+   - Default: 10 if not set
+dropout: `float`
+   - Default: 0.01
+ema_decay: `float`
+   - Default: 0.996
+```
 
-learning_rate = 0.001
-weight_decay = 0.0001
-batch_size = 256
-num_epochs = 50
-self_supervised_epochs = 20
-fine_tune_epochs = 20
-image_size = 28 if dataset == "MNIST" else 32 # upscale CIFAR10 and CIFAR100 images for better performance -> INVESTIGATE
-patch_size = 7 if dataset == "MNIST" else 8 # keep the number of patches the same for all datasets to keep experiments controlled
-projection_dim = 64
-num_heads = 4
-transformer_layers = 8 # depth
-mlp_head_units = [2048, 1024]
-patience_value = 10 if dataset == "MNIST" else 15 # default: 10 if not set
-dropout=0.01 # Adjust as necessary
-ema_decay = 0.996  # Adjust only if necessary
+- dataset: The dataset to use for training and evaluation. Currently supports MNIST, CIFAR10 and CIFAR100.
+- learning_rate: The learning rate to use for training.
+- weight_decay: The weight decay to use for training.
+- batch_size: The batch size to use for training.
+- num_epochs: The number of epochs to use for training.
+- self_supervised_epochs: The number of epochs to use for self-supervised pre-training.
+- fine_tune_epochs: The number of epochs to use for fine-tuning.
+- image_size: The image size to use for training and evaluation.
+- patch_size: The patch size to use for training and evaluation.
+- projection_dim: The projection dimension to use for training and evaluation.
+- num_heads: The number of heads to use for training and evaluation.
+- transformer_layers: The number of transformer layers to use for training and evaluation.
+- mlp_head_units: The number of units to use for the MLP head.
+- patience_value: The patience value to use for early stopping.
+- dropout: The dropout value to use for training and evaluation.
+- ema_decay: The exponential moving average decay to use for training and evaluation.
 
 ## Contributing
 
