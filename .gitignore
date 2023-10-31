@@ -2,6 +2,7 @@
 data/
 trained_models/
 notebooks/plots/
+notebooks/rnd/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
