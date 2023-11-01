@@ -1,10 +1,30 @@
-Dataset, Model, Accuracy
-MNIST, mnist_basic_vit, 97.71
-MNIST, mnist_dino_vit, 97.51
-MNIST, mnist_cnn, 98.90
-CIFAR-10, cifar10_cnn, 72.96
-CIFAR-10, cifar10_basic_vit, 35.14
-CIFAR-10, cifar10_dino_vit, 35.89
-CIFAR-100, cifar100_cnn, 42.51
-CIFAR-100, cifar100_basic_vit, 10.21
-CIFAR-100, cifar100_dino_vit, 7.75
+Dataset, Percentage Data Used, Model, Accuracy
+MNIST, 100, mnist_basic_vit, 97.71
+MNIST, 100, mnist_dino_vit, 97.51
+MNIST, 100, mnist_cnn, 98.90
+CIFAR-10, 100, cifar10_cnn, 72.96
+CIFAR-10, 100, cifar10_basic_vit, 35.14
+CIFAR-10, 100, cifar10_dino_vit, 35.89
+CIFAR-100, 100, cifar100_cnn, 42.51
+CIFAR-100, 100, cifar100_basic_vit, 10.21
+CIFAR-100, 100, cifar100_dino_vit, 7.75
+-,-,-,-
+MNIST, 25, mnist_basic_vit, 96.16
+MNIST, 25, mnist_dino_vit, 94.12
+CIFAR-10, 25, cifar10_basic_vit, 25.28
+CIFAR-10, 25, cifar10_dino_vit, 24.72
+CIFAR-100, 25, cifar100_basic_vit, 3.48
+CIFAR-100, 25, cifar100_dino_vit, 3.44
+-,-,-,-
+MNIST, 50, mnist_basic_vit,
+MNIST, 50, mnist_dino_vit,
+CIFAR-10, 50, cifar10_basic_vit,
+CIFAR-10, 50, cifar10_dino_vit,
+CIFAR-100, 50, cifar100_basic_vit,
+CIFAR-100, 50, cifar100_dino_vit,
+-,-,-,-
+MNIST, 75, mnist_basic_vit,
+MNIST, 75, mnist_dino_vit,
+CIFAR-10, 75, cifar10_basic_vit,
+CIFAR-10, 75, cifar10_dino_vit,
+CIFAR-100, 75, cifar100_basic_vit,
