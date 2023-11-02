@@ -11,21 +11,30 @@ CIFAR-100, 100, cifar100_dino_vit, 7.75
 -,-,-,-
 MNIST, 25, mnist_basic_vit, 96.16
 MNIST, 25, mnist_dino_vit, 94.12
+MNIST, 25, mnist_cnn, 98.72
 CIFAR-10, 25, cifar10_basic_vit, 25.28
 CIFAR-10, 25, cifar10_dino_vit, 24.72
+CIFAR-10, 25, cifar10_cnn, 66.16
 CIFAR-100, 25, cifar100_basic_vit, 3.48
 CIFAR-100, 25, cifar100_dino_vit, 3.44
+CIFAR-100, 25, cifar100_cnn, 30.00
 -,-,-,-
 MNIST, 50, mnist_basic_vit, 96.72
 MNIST, 50, mnist_dino_vit, 96.58
+MNIST, 50, mnist_cnn, 98.88
 CIFAR-10, 50, cifar10_basic_vit, 28.64
 CIFAR-10, 50, cifar10_dino_vit, 27.94
+CIFAR-10, 50, cifar10_cnn, 69.64
 CIFAR-100, 50, cifar100_basic_vit, 5.54
 CIFAR-100, 50, cifar100_dino_vit, 4.44
+CIFAR-100, 50, cifar100_cnn, 34.90
 -,-,-,-
 MNIST, 75, mnist_basic_vit, 97.40
 MNIST, 75, mnist_dino_vit, 96.53
+MNIST, 75, mnist_cnn, 99.19
 CIFAR-10, 75, cifar10_basic_vit, 31.04
 CIFAR-10, 75, cifar10_dino_vit, 29.05
+CIFAR-10, 75, cifar10_cnn, 72.64
 CIFAR-100, 75, cifar100_basic_vit, 7.47
 CIFAR-100, 75, cifar100_dino_vit, 5.76
+CIFAR-100, 75, cifar100_cnn, 39.71
