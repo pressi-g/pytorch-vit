@@ -25,7 +25,7 @@ CIFAR-100, 50, cifar100_dino_vit, 4.44
 -,-,-,-
 MNIST, 75, mnist_basic_vit, 97.40
 MNIST, 75, mnist_dino_vit, 96.53
-CIFAR-10, 75, cifar10_basic_vit,
-CIFAR-10, 75, cifar10_dino_vit,
-CIFAR-100, 75, cifar100_basic_vit,
-CIFAR-100, 75, cifar100_dino_vit,
+CIFAR-10, 75, cifar10_basic_vit, 31.04
+CIFAR-10, 75, cifar10_dino_vit, 29.05
+CIFAR-100, 75, cifar100_basic_vit, 7.47
+CIFAR-100, 75, cifar100_dino_vit, 5.76
