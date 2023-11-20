@@ -1,4 +1,4 @@
-""" Utility functions for pytorch_vit """
+""" Utility functions for pytorch-vit. """
 
 # Standard imports
 import numpy as np
@@ -797,7 +797,9 @@ def supervised_training(
     print("Supervised fine-tuning complete!")
 
 
-def initialize_optimizer_scheduler_criterion(model, learning_rate, weight_decay, patience_value):
+def initialize_optimizer_scheduler_criterion(
+    model, learning_rate, weight_decay, patience_value
+):
     """
     Initialize optimizer and scheduler.
 
@@ -812,10 +814,15 @@ def initialize_optimizer_scheduler_criterion(model, learning_rate, weight_decay,
         scheduler (nn.Module): Scheduler
     """
 
-    optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
-    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=patience_value, factor=0.5, verbose=True)
+    optimizer = optim.Adam(
+        model.parameters(), lr=learning_rate, weight_decay=weight_decay
+    )
+    scheduler = ReduceLROnPlateau(
+        optimizer, "min", patience=patience_value, factor=0.5, verbose=True
+    )
     criterion = nn.CrossEntropyLoss()
     return optimizer, scheduler, criterion
+
 
 def plot_losses(train_losses, val_losses, plot_dir, model_name, dataset, data_use):
     """
@@ -833,14 +840,15 @@ def plot_losses(train_losses, val_losses, plot_dir, model_name, dataset, data_us
         None
     """
     plt.figure(figsize=(6, 4))
-    plt.title(f'{dataset} Basic ViT - {data_use}% Data: Loss')
-    plt.plot(train_losses, label='Train')
-    plt.plot(val_losses, label='Validation')
-    plt.ylabel('Loss')
-    plt.xlabel('Epoch')
+    plt.title(f"{dataset} Basic ViT - {data_use}% Data: Loss")
+    plt.plot(train_losses, label="Train")
+    plt.plot(val_losses, label="Validation")
+    plt.ylabel("Loss")
+    plt.xlabel("Epoch")
     plt.legend()
-    plt.savefig(f'{plot_dir}{model_name}_basic_vit_loss.pdf', format="pdf")
+    plt.savefig(f"{plot_dir}{model_name}_basic_vit_loss.pdf", format="pdf")
     plt.show()
+
 
 def plot_accuracies(train_acc, val_acc, plot_dir, model_name, dataset, data_use):
     """
@@ -859,16 +867,17 @@ def plot_accuracies(train_acc, val_acc, plot_dir, model_name, dataset, data_use)
     """
 
     plt.figure(figsize=(6, 4))
-    plt.title(f'{dataset} Basic ViT- {data_use}% Data: Accuracy')
+    plt.title(f"{dataset} Basic ViT- {data_use}% Data: Accuracy")
     train_acc = [i.cpu() for i in train_acc]  # move list to cpu
     val_acc = [i.cpu() for i in val_acc]
-    plt.plot(train_acc, label='Train')
-    plt.plot(val_acc, label='Validation')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
+    plt.plot(train_acc, label="Train")
+    plt.plot(val_acc, label="Validation")
+    plt.ylabel("Accuracy")
+    plt.xlabel("Epoch")
     plt.legend()
-    plt.savefig(f'{plot_dir}{model_name}_basic_vit_acc.pdf', format="pdf")
+    plt.savefig(f"{plot_dir}{model_name}_basic_vit_acc.pdf", format="pdf")
     plt.show()
+
 
 def evaluate_model(model, test_loader, device, dataset, plot_dir, model_name):
     """
@@ -903,11 +912,11 @@ def evaluate_model(model, test_loader, device, dataset, plot_dir, model_name):
     if dataset != "CIFAR100":
         print(classification_report(labels, preds))
         cm = confusion_matrix(labels, preds)
-        cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis] * 100
+        cm_normalized = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis] * 100
         plt.figure(figsize=(6, 6))
-        sns.heatmap(cm_normalized, annot=True, fmt='.2f', cmap='Blues', cbar=False)
-        plt.xlabel('Predicted')
-        plt.ylabel('Actual')
-        plt.title(f'{dataset} Basic ViT: Confusion Matrix (in %)')
-        plt.savefig(f'{plot_dir}{model_name}_basic_vit_cm.pdf', format="pdf")
+        sns.heatmap(cm_normalized, annot=True, fmt=".2f", cmap="Blues", cbar=False)
+        plt.xlabel("Predicted")
+        plt.ylabel("Actual")
+        plt.title(f"{dataset} Basic ViT: Confusion Matrix (in %)")
+        plt.savefig(f"{plot_dir}{model_name}_basic_vit_cm.pdf", format="pdf")
         plt.show()
