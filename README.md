@@ -67,11 +67,74 @@ The Vision Transformer (ViT) is a pioneering architecture that adapts the transf
 
 ## Usage
 
-To run your own experiments please clone the notebook with model you'd like to use. Change the config values in the second cell and run the notebook. Alternatively, you may view the experiments and its logs.
+You may either run the training and evaluation scripts directly or use the notebooks to run your own experiments.
 
-These notebooks contain the finalised code to be refactored into scripts to streamline experiments. All modules are reusable.
+If you prefer using notebooks, please copy either the CNN or the ViT notebook from the templates folder `pytorch_vit/notebooks/templates` and adjust it for your use. Change the config values in the second cell and run the notebook.
 
-Refactoring into scripts will happen in the near future.
+To run the training and evaluation scripts, please follow the steps below:
+1. Update the config values in `app/config.py` to your liking.
+2. Run the training script:
+
+   ```bash
+   python3 main.py --model_type cnn  
+   ```
+You options are `cnn`, `vit` and `vit_dpe`.
+
+3. If you wish to evaluate the model, run the evaluation script:
+
+   ```bash
+   python3 main.py --model_type cnn --evaluate
+   ```
+
+## Repository Structure
+
+```pytorch_vit/
+│
+├── app/                       # Application-specific modules
+│   ├── __init__.py            # Makes app a Python module
+│   ├── main.py                # Entry point to your application
+│   ├── utils.py               # Utility functions module
+│   ├── config.py              # Configuration parameters and hyperparameters
+│   └── models/                # Directory for model classes
+│       ├── __init__.py
+│       ├── base_model.py      # Base model class
+│       ├── vit/
+│       │   ├── __init__.py
+│       │   ├── attention.py  # Contains the self-attention mechanism
+│       │   ├── transformer.py  # Contains the transformer block logic
+│       │   ├── embedding.py  # Contains the patch embedding logic
+│       │   ├── mlp.py  # Contains the multi-layer perceptron logic
+│       │   ├── dpe.py  # Contains the class for the data patch embedding
+│       │   └── vit.py  # Contains the high-level Vision Transformer model logic
+│       └── cnn.py       # Another specific model class
+│
+├── data/                      # Directory for storing data (not included in version control, but will be created on running the app)
+│
+├── trained_models/            # Directory for storing trained models (not included in version control, but will be created on running the app)
+├── docs/                      # Documentation for the project
+│   └── Vision Transformers for Small Datasets.pdf # Project report
+│
+├── tests/                     # Unit and integration tests
+│   ├── __init__.py
+│   ├── test_utils.py
+│   └── models/
+│       ├── __init__.py
+│       ├── test_base_model.py
+│       ├── test_model_one.py
+│       └── test_model_two.py
+│
+├── notebooks/                 # Jupyter notebooks for experiments
+│   └── ...
+│
+├── requirements.txt           # Project dependencies
+│
+├── setup.py                   # Setup script for installing the project
+│
+├── LICENSE                    # License for your project
+│
+└── README.md                  # The top-level README for developers using this project
+
+```
 
 ## Parameters
 
